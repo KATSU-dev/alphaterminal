@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<title>Alpha Terminal</title>
+	<link rel="icon" href="images/favicon.ico">
+<!--
+
+Tooplate 2083 Steak House
+
+https://www.tooplate.com/view/2083-steak-house
+
+-->
+  	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+  	<meta name="description" content="">
+
+	<!-- stylesheets css -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+  	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+  	<link rel="stylesheet" href="css/nivo-lightbox.css">
+  	<link rel="stylesheet" href="css/nivo_themes/default/default.css">
+
+  	<link rel="stylesheet" href="css/hover-min.css">
+  	<link rel="stylesheet" href="css/flexslider.css">
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/newstyle.css">
+
+  	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+
+</head>
+<body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- Preloader section -->
+<div class="preloader">
+	<div class="sk-spinner sk-spinner-pulse"></div>
+</div>
+
+<!-- Navigation section -->
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+
+    <div class="navbar-header">
+      <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon icon-bar"></span>
+        <span class="icon icon-bar"></span>
+        <span class="icon icon-bar"></span>
+      </button>
+      <a href="#" class="navbar-brand">Alpha Terminal</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.html" class="smoothScroll">Home</a></li>
+        <li><a href="join.html" class="smoothScroll">Join</a></li>
+		<li><a href="downloads.html" class="smoothScroll">Downloads</a></li>
+		<li><a href="guide.html" class="smoothScroll">Guide</a></li>
+        <li><a href="https://discord.gg/znkvcMV" class="smoothScroll" target="_blank">Discord</a></li>
+<!--        <li><a href="#team" class="smoothScroll">Team</a></li>
+        <li><a href="#gallery" class="smoothScroll">Gallery</a></li>
+        <li><a href="#contact" class="smoothScroll">Contact</a></li> -->
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<!-- About section -->
+<section id="about" class="parallax-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+				<div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+					<h2>Guide</h2>
+					<h4></h4>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			
+			<h3 style="text-align: center"> Software </h3>
+			
+			<p style="font-size: 150%"> SCAN </p>
+			<p>
+			Use the SCAN function if you want to retrieve the DigiROM <i>from</i> your VPet.<br />
+			Once SCAN is pressed, the Arduino's LED should blink. Now, the Arduino is ready to retrieve the DigiROM from your VPet. Connect your VPet to your DCom or AlphaCom, and press the B button (middle button). Once the communication is complete, your DigiROM should appear in the Rom Field, and your VPet should display "ERROR" or "RETRY". While 0NL1NE uses Dummy Codes, Alpha Terminal has developed an alternative - Inert Codes. These DigiROMs work by retrieving the full DigiROM from your device <i>without</i> forcing it to battle, instead making it error out of the communication. This ensures your battle statistics won't be disrupted by scanning your VPet.
+			</p> <br />
+			
+			<p style="font-size: 150%"> SEND </p>
+			<p>
+			To send a DigiROM from Alpha Terminal <i>to</i> your VPet, use the SEND function.
+			When the SEND button is pressed, the data that is currently in the Rom Field will be sent to the Arduino. Be careful to make sure you have the correct DigiROM in the Rom Field <i>before</i> pressing SEND.
+			Battle type communications (I.e. not jogress or copymon) will also return the DigiROM from the battle. Once the DigiROM has been sent to your VPet, the Rom Field will now have a new DigiROM - this is the DigiROM from the battle that just took place.
+			</p> <br />
+			
+			<p style="font-size: 150%"> Why does my DigiROM look weird? - Encryption </p>
+			<p>
+			DigiROMs are Hexadecimal representations of the data that is directly transmitted between devices during a VPet communication. Though there is variation between device types, these codes typically contain information on the Digimon's name, power, the contents of the battle, and sometimes the victor. Conventional DigiROMs display this data in an entirely unprotected format where anyone has the ability to manipulate the data. Whether the individual understands the changes they may make to a DigiROM or not, they can be edited and abused very easily, making cheating a real threat.
+			Alpha Terminal uses an encryption system that masks the data in a way that prevents cheating while retaining all of the data in the DigiROM. By "scrambling" the code into random characters, we can still copy, paste, and share our codes, only now there is no threat of abusing the DigiROM system.
+			It is encouraged that you try to only give and accept encrypted DigiROM codes to ensure the community is free of cheating. Using conventional DigiROM codes in Alpha Terminal will yield an error, as it is not trusted by the program. The exception to this rule is Jogress, as there is virtually no damage that can be done in manipulating the data of a Jogress DigiROM.
+			</p> <br />
+			
+			
+			<h3 style="text-align: center"> Hardware </h3>
+			
+			<p style="font-size: 150%"> Will it work with my old DCom or Digivice Helper? </p>
+			<p>
+			The DCom, Digivice Helper, and the AlphaCom all run on the same foundation - the program written by BladeSabre. As a result, all of these hardware systems are compatible with Alpha Terminal - though you may need to install the original DCom Arduino program to your device.
+			</p> <br />
+			
+			<p style="font-size: 150%"> Can I use an Arduino Uno/other Arduino? </p>
+			<p>
+			Yes. The Nano and Uno are almost the same in terms of specs, so the two are directly swappable. Additionally, virtually all Arduino boards should be compatible. If you are having issues with a microcontroller board that has not been mentioned before, visit the Discord server to ask for help.
+			</p> <br />
+			
+			<p style="font-size: 150%"> Can I use an Arduino Uno/other Arduino? </p>
+			<p>
+			The original DCom created by BladeSabre is a well-designed circuit with high accuracy for this type of electronic communication. Consequently, it uses a handful of components for filtering and logic level reduction. The AlphaCom achieves the same goal as the DCom, but with less components - at the cost of some accuracy. However, it is stable and reliable enough for Bandai's VPets, so is still a useful alternative that is smaller and cheaper.
+			</p> <br />
+			
+		</div>
+	</div>
+</section>
+
+
+<!-- Footer section -->
+<footer>
+	<div class="container">
+		<div class="row">
+
+              <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.3s">
+                <h3>Alpha 2020</h3>
+                <p></p>
+              </div>  
+        
+              <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.6s">
+                <h3>Contact</h3>
+                <p><a href="https://discord.gg/znkvcMV" target="_blank" style="color:DarkGray">Discord</a></p>
+              </div> 
+        
+              <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.9s">
+                <h3>Social Media</h3>
+                <p>Coming Soon</p>
+              </div> 
+
+		</div>
+	</div>
+</footer>
+</section>
+
+<!-- javscript js -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/jquery.magnific-popup.min.js"></script>
+
+<script src="js/jquery.sticky.js"></script>
+<script src="js/jquery.backstretch.min.js"></script>
+
+<script src="js/isotope.js"></script>
+<script src="js/imagesloaded.min.js"></script>
+<script src="js/nivo-lightbox.min.js"></script>
+
+<script src="js/jquery.flexslider-min.js"></script>
+
+<script src="js/jquery.parallax.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/wow.min.js"></script>
+
+<script src="js/custom.js"></script>
+
+</body>
+</html>

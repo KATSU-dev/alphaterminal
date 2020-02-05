@@ -1,0 +1,26 @@
+.icos {
+	width: 6vh;
+}
+
+.video {
+	width: 50vw;
+	height: 50vh;
+}
+.img {
+	width: 50vw;
+	margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+	.icos {
+		width:11vw;
+	}
+	.video {
+		width: 85vw;
+		height: 50vw;
+	}
+	.img {
+		width: 60vw;
+		margin: auto;
+	}
+}
