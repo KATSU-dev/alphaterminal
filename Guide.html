@@ -37,6 +37,14 @@ https://www.tooplate.com/view/2083-steak-house
   	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
 
+	<style>
+		td {
+			padding: 5px;
+			font-size: 25px;
+		}
+		
+	</style>
+
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
@@ -122,10 +130,46 @@ https://www.tooplate.com/view/2083-steak-house
 			<p>
 			Yes. The Nano and Uno are almost the same in terms of specs, so the two are directly swappable. Additionally, virtually all Arduino boards should be compatible. If you are having issues with a microcontroller board that has not been mentioned before, visit the Discord server to ask for help.
 			</p> <br />
-			
+			<a name="alphacom-build"></a>
 			<p style="font-size: 150%"> What is an AlphaCom? </p>
 			<p>
 			The original DCom created by BladeSabre is a well-designed circuit with high accuracy for this type of electronic communication. Consequently, it uses a handful of components for filtering and logic level reduction. The AlphaCom achieves the same goal as the DCom, but with less components - at the cost of some accuracy. However, it is stable and reliable enough for Bandai's VPets, so is still a useful alternative that is smaller and cheaper.
+			</p><br />
+			
+			<p style="font-size: 150%"> How to Build an AlphaCom </p>
+			<p>
+			A traditional DCom circuit has one primary objective: reduce the outgoing logic voltage to approximately 2.75 volts. It achieves this using a tristate buffer chip - the 14 pin IC chip that can be difficult to acquire. This chip is powered at a reference voltage, and repeats the same signals at its output that is receives at its input - only now at the given reference voltage. To keep the reference voltage stable the DCom requires you to assemble a small noise-filtering power supply circuit using capacitors and a resistor. Using the tristate buffer method is a very stable and reliable way to achieve its goal, though it becomes a somewhat complex circuit with components that can be difficult to source. The AlphaCom looks to solve this. 
+			<br /> 
+			An AlphaCom achieves the same voltage reduction using only two resistors! <br />
+			In electronics, this type of circuit is called a Potential Divider (or voltage divider) and can be found in many electronic circuits. It applies the principle that however much voltage is supplied at one end <i><b>must</b></i> be dropped over the course of its journey to ground. The amount of voltage that is dropped over a component on that journey is proportional to the component's resistance relative to the rest of the circuit. If all of that made no sense, that's perfectly fine. The maths has already been done for you below. 
+			<br /><br />
+			Signal voltage must be as close to 2.75v as possible.<br />
+
+			Signal voltage = output voltage * ( resistor2 / ( resistor1 + resistor2 ) )<br /><br />
+
+			Therefore (When output voltage in real-world is approximately 4.75) <br />
+			4.75v * ( 5600 / ( 3900 + 5600 ) )  =  2.8v<br />
+			2.8v ≈ 2.75v<br /><br />
+
+			You can choose any two resistors that satisfy this mathematical formula. Try to use resistors close to the recommended resistances as different VPets are tolerant to different voltage and current levels. <br />
+			<br />
+			Recommended Resistor Pairings: <br />
+			
+			
+			<table>
+				<tr>	<td>A)</td>	<td>R1</td>	<td>3.9kΩ</td>	<td>R2</td> <td>5.6kΩ</td> 	</tr>
+				<tr>	<td>B)</td>	<td>R1</td>	<td>3kΩ</td>	<td>R2</td> <td>4.7kΩ</td>	</tr>
+			</table>
+			
+			<div style="text-align:center;"><img src="images/breadboard.png" class="img"/> <br /><img src="images/wiring diagram.png" class="img"/> </div> <br />
+			
+			<p style="font-size: 18px">
+			For best compatibility with Alpha projects, use an 5v Arduino Nano microcontroller board. Any 5v Arduino will be able to communicate with your VPet using this circuit, though may require extra steps. <br />
+			<br />
+			Lastly, it is important to note that if you are using an AlphaCom outside of an Alpha project, you will be required to first send the code: <i><b>V1-0000</b></i> over serial to initialise the device. After this, you can send any DigiROM to the AlphaCom - failure to send the initialising code may result in timeout errors. This step is <i><b>not required</i></b> within any Alpha projects and programs (i.e. Alpha Terminal). If you experience any issues, visit the 0NL1NE discord server to ask for assistance.
+			</p>
+			
+			
 			</p> <br />
 			
 		</div>
