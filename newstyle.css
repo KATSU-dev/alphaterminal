@@ -11,7 +11,10 @@
 	margin: auto;
 }
 
-#tw, #tw {
+#tw {
+	height: 1vh;
+}
+#yt {
 	height: 1vh;
 }
 
