@@ -6,74 +6,6 @@ $(window).load(function(){
 });
 
 
-/* Magnific Popup
------------------------------------------------*/
-$(document).ready(function() {
-    $('.popup-youtube').magnificPopup({
-        type: 'iframe',
-        mainClass: 'mfp-fade',
-        removalDelay: 160,
-        preloader: false,
-         fixedContentPos: false,
-    });
-});
-
-
-/* Istope Portfolio
------------------------------------------------*/
-jQuery(document).ready(function($){
-
-  if ( $('.iso-box-wrapper').length > 0 ) { 
-
-      var $container  = $('.iso-box-wrapper'), 
-        $imgs     = $('.iso-box img');
-
-      $container.imagesLoaded(function () {
-
-        $container.isotope({
-        layoutMode: 'fitRows',
-        itemSelector: '.iso-box'
-        });
-
-        $imgs.load(function(){
-          $container.isotope('reLayout');
-        })
-
-      });
-
-      //filter items on button click
-
-      $('.filter-wrapper li a').click(function(){
-
-          var $this = $(this), filterValue = $this.attr('data-filter');
-
-      $container.isotope({ 
-        filter: filterValue,
-        animationOptions: { 
-            duration: 750, 
-            easing: 'linear', 
-            queue: false, 
-        }                
-      });             
-
-      // don't proceed if already selected 
-
-      if ( $this.hasClass('selected') ) { 
-        return false; 
-      }
-
-      var filter_wrapper = $this.closest('.filter-wrapper');
-      filter_wrapper.find('.selected').removeClass('selected');
-      $this.addClass('selected');
-
-        return false;
-      }); 
-
-  }
-
-});
-
-
 $(document).ready(function() {
 
   /* Hide mobile menu after clicking on a link
@@ -83,10 +15,10 @@ $(document).ready(function() {
     });
 
 
-  /*  smoothscroll
-  ----------------------------------------------*/
-   $(function() {
-        $('#home a, .navbar-default a').bind('click', function(event) {
+  /* Smoothscroll js
+  -----------------------------------------------*/
+    $(function() {
+        $('.navbar-default a').bind('click', function(event) {
             var $anchor = $(this);
             $('html, body').stop().animate({
                 scrollTop: $($anchor.attr('href')).offset().top - 49
@@ -94,50 +26,53 @@ $(document).ready(function() {
             event.preventDefault();
         });
     });
-  
 
 
-  /* home slideshow section
+ /* Home Slideshow Vegas
   -----------------------------------------------*/
-  $(function(){
-    jQuery(document).ready(function() {
-    $('#home').backstretch([
-       "images/home-bg-slideshow1.jpg", 
-       "images/home-bg-slideshow2.jpg",
-       "images/home-bg-slideshow3.jpg",
-        ],  {duration: 2000, fade: 750});
+  $(function() {
+    $('body').vegas({
+        slides: [
+            { src: 'images/slide-img1.jpg' },
+            { src: 'images/slide-img2.jpg' },
+            { src: 'images/slide-img3.jpg' }
+        ],
+        timer: false,
+        transition: [ 'zoomIn', ],
+        animation: ['kenburns']
     });
-  })
+  });
 
 
-   /* Flexslider
-    -----------------------------------------------*/
-    $(window).load(function() {
-      $('.flexslider').flexslider({
-         animation: "slide"
+  /* Team carousel
+  -----------------------------------------------*/
+  $(document).ready(function() {
+      $("#team-carousel").owlCarousel({
+          items : 3,
+          itemsDesktop : [1199,3],
+          itemsDesktopSmall : [979,3],
+          slideSpeed: 300,
+          itemsDesktop : [1199,2],
+          itemsTablet: [768,1],
+          itemsTabletSmall: [985,2],
+          itemsMobile : [479,1],
       });
     });
-  
+    
 
-  /* Parallax section
+    /* Back to Top
     -----------------------------------------------*/
-  function initParallax() {
-    $('#about').parallax("100%", 0.1);
-    $('#feature').parallax("100%", 0.3);
-    $('#about').parallax("100%", 0.1);
-    $('#video').parallax("100%", 0.2);
-    $('#menu').parallax("100%", 0.3);
-    $('#team').parallax("100%", 0.3);
-    $('#gallery').parallax("100%", 0.1);
-    $('#contact').parallax("100%", 0.2);
-  }
-  initParallax();
-
-
-  /* Nivo lightbox
-    -----------------------------------------------*/
-  $('#gallery .col-md-4 a').nivoLightbox({
-        effect: 'fadeScale',
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 200) {
+          $('.go-top').fadeIn(200);
+            } else {
+                $('.go-top').fadeOut(200);
+           }
+        });   
+          // Animate the scroll to top
+        $('.go-top').click(function(event) {
+          event.preventDefault();
+        $('html, body').animate({scrollTop: 0}, 300);
     });
 
 
